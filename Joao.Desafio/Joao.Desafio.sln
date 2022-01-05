@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joao.Desafio.API", "src\Joa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joao.Desafio.Dominio", "src\Joao.Desafio.Dominio\Joao.Desafio.Dominio.csproj", "{535CF8EC-84D3-4CEE-82D2-952E20E77A05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joao.Desafio.Infraestrutura", "src\Joao.Desafio.Infraestrutura\Joao.Desafio.Infraestrutura.csproj", "{2B606D72-C3D8-497C-BA9B-0FC65B67054E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{535CF8EC-84D3-4CEE-82D2-952E20E77A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{535CF8EC-84D3-4CEE-82D2-952E20E77A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{535CF8EC-84D3-4CEE-82D2-952E20E77A05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B606D72-C3D8-497C-BA9B-0FC65B67054E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B606D72-C3D8-497C-BA9B-0FC65B67054E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B606D72-C3D8-497C-BA9B-0FC65B67054E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B606D72-C3D8-497C-BA9B-0FC65B67054E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

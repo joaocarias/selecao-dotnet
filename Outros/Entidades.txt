@@ -24,3 +24,8 @@ Usuario
 	EstudanteId
 	UserName
 	Senha
+
+Pagamento
+	EstudanteId
+	DataPagamento
+	Valor
