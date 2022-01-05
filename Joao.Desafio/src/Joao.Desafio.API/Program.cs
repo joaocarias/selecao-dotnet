@@ -1,4 +1,8 @@
+using Joao.Desafio.API.AutoMapper;
+using AutoMapper;
+using Joao.Desafio.Dominio.IRepositorio;
 using Joao.Desafio.Infraestrutura.Contextos;
+using Joao.Desafio.Infraestrutura.Repositorios;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +13,10 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAutoMapper(typeof(AppProfile));
+
+builder.Services.AddScoped<ICursoRepositorio, CursoRepositorio>();
 
 var app = builder.Build();
 
