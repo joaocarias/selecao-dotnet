@@ -1,0 +1,26 @@
+Entidade Base
+	Id
+	Data Cadastro
+	Ativo
+
+Estadante 
+	Nome Completo
+	Cartao de Credito
+
+Cartão de Credito
+	Numero
+	Nome Titular	
+	Validade
+	Código
+
+Curso
+	Descricao
+
+Matrícula 
+	EstudanteId
+	CursoId
+
+Usuario
+	EstudanteId
+	UserName
+	Senha

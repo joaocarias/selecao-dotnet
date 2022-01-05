@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joao.Desafio.API", "src\Joao.Desafio.API\Joao.Desafio.API.csproj", "{04CF5F6E-7540-48D7-820D-7F43C1F19C4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joao.Desafio.Dominio", "src\Joao.Desafio.Dominio\Joao.Desafio.Dominio.csproj", "{535CF8EC-84D3-4CEE-82D2-952E20E77A05}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04CF5F6E-7540-48D7-820D-7F43C1F19C4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04CF5F6E-7540-48D7-820D-7F43C1F19C4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04CF5F6E-7540-48D7-820D-7F43C1F19C4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04CF5F6E-7540-48D7-820D-7F43C1F19C4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{535CF8EC-84D3-4CEE-82D2-952E20E77A05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{535CF8EC-84D3-4CEE-82D2-952E20E77A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{535CF8EC-84D3-4CEE-82D2-952E20E77A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{535CF8EC-84D3-4CEE-82D2-952E20E77A05}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67FDDB89-C68D-490F-ADDA-576B33439B34}
+	EndGlobalSection
+EndGlobal
