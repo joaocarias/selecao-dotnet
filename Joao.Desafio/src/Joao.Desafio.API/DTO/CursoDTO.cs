@@ -1,8 +1,10 @@
-﻿namespace Joao.Desafio.API.DTO
+﻿using System.Text.Json.Serialization;
+
+namespace Joao.Desafio.API.DTO
 {
     public class CursoDTO
     {
-        public Guid Id { get; set; }
+        [JsonPropertyName("Descricao")]
         public string Descricao { get; set; } = string.Empty;
     }
 }

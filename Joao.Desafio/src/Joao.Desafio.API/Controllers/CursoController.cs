@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Joao.Desafio.API.DTO;
+using Joao.Desafio.Dominio.Entidades;
+using Joao.Desafio.Dominio.IRepositorio;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Joao.Desafio.API.Controllers
 {
@@ -6,18 +9,77 @@ namespace Joao.Desafio.API.Controllers
     [ApiController]
     public class CursoController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult ObterTodos()
+        private readonly ICursoRepositorio _cursoRepositorio;
+
+        public CursoController(ICursoRepositorio cursoRepositorio)
         {
-            return Ok();
+            _cursoRepositorio = cursoRepositorio;
         }
 
-        [HttpPost]
-        public IActionResult Novo()
+        // GET dados-api-pessoa
+        /// <summary>
+        /// Obtem todos os cursos cadastrados 
+        /// </summary>
+        /// <remarks>
+        /// Exemplo:
+        ///
+        ///     GET /obter-todos
+        /// 
+        /// </remarks> 
+        /// <returns>Listagem de cursos cadastrados .</returns>
+        /// <response code="200">Retorna listagem de cursos</response>
+        [HttpGet("obter-todos")]
+        public IActionResult ObterTodos()
         {
+            return Ok(_cursoRepositorio.ObteTodos());
+        }
 
 
-            return Ok();
+        [HttpGet("obter")]
+        public IActionResult Obter(Guid id)
+        {
+            return Ok(_cursoRepositorio.Obter(id));
+        }
+
+        [HttpPost("novo")]
+        public IActionResult Novo(CursoDTO cursoNovo)
+        {
+            var curso = new Curso(cursoNovo.Descricao);
+
+            _cursoRepositorio.Adicionar(curso);
+
+            return Ok(curso);
+        }
+
+
+        [HttpPut("editar")]
+        public IActionResult Editar(Guid id, CursoDTO cursoEditado)
+        {
+            var curso = _cursoRepositorio.Obter(id);
+            if (curso != null)
+            {
+                curso.Editar(cursoEditado.Descricao);
+
+                _cursoRepositorio.Atualizar(curso);
+
+                return Ok(curso);
+            }
+
+            return BadRequest();
+        }
+
+        [HttpDelete("remover")]
+        public IActionResult Remover(Guid id)
+        {
+            var curso = _cursoRepositorio.Obter(id);
+            if (curso != null)
+            {
+                _cursoRepositorio.Apagar(curso);
+
+                return Ok(curso);
+            }
+
+            return BadRequest();
         }
     }
 }

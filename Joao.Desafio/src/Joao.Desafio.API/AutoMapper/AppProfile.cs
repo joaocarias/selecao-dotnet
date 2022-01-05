@@ -8,7 +8,7 @@ namespace Joao.Desafio.API.AutoMapper
     {
         public AppProfile()
         {
-            CreateMap<Curso, CursoDTO>().ReverseMap();
+           // CreateMap<Curso, CursoDTO>().ReverseMap();
         }
     }
 }
