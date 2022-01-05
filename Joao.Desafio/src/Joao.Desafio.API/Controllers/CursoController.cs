@@ -15,6 +15,8 @@ namespace Joao.Desafio.API.Controllers
         [HttpPost]
         public IActionResult Novo()
         {
+
+
             return Ok();
         }
     }
