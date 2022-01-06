@@ -1,5 +1,6 @@
 using Joao.Desafio.API.AutoMapper;
 using Joao.Desafio.Dominio.IRepositorio;
+using Joao.Desafio.Dominio.IRepositorios;
 using Joao.Desafio.Infraestrutura.Contextos;
 using Joao.Desafio.Infraestrutura.Repositorios;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +27,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddAutoMapper(typeof(AppProfile));
 
 builder.Services.AddScoped<ICursoRepositorio, CursoRepositorio>();
+builder.Services.AddScoped<IEstudanteRepositorio, EstudanteRepositorio>();
 
 var app = builder.Build();
 

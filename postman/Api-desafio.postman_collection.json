@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "f7184fb3-9148-498f-b4e3-54f7628e3f66",
+		"name": "Api-desafio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Curso - Obter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-desafio}}/api/Curso/obter-todos",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"Curso",
+						"obter-todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Curso - Obter Todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-desafio}}/api/Curso/obter-todos",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"Curso",
+						"obter-todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Curso -  Novo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"descricao\": \"Matemática\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{api-desafio}}/api/Curso/novo",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"Curso",
+						"novo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Curso - Editar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"nomeCompleto\": \"João Carias de França editado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{api-desafio}}/api/Curso/editar?Id=593b44e8-5f89-498f-9805-d33ff1b522eb",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"Curso",
+						"editar"
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "593b44e8-5f89-498f-9805-d33ff1b522eb"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Curso - Remover",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-desafio}}/api/Curso/remover?Id=868e0990-a521-400b-beea-63f1190b41e5",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"Curso",
+						"remover"
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "868e0990-a521-400b-beea-63f1190b41e5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Estudante - Obter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-desafio}}/api/Estudante/obter?Id=93b44e8-5f89-498f-9805-d33ff1b522eb",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"Estudante",
+						"obter"
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "93b44e8-5f89-498f-9805-d33ff1b522eb"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Estudante - Obter Todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-desafio}}/api/Estudante/obter-todos",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"Estudante",
+						"obter-todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Estudante -  Novo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"nomeCompleto\": \"João Carias de França\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{api-desafio}}/api/Estudante/novo",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"Estudante",
+						"novo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Estudante - Editar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"nomeCompleto\": \"João Carias de França editado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{api-desafio}}/api/Estudante/editar?Id=593b44e8-5f89-498f-9805-d33ff1b522eb",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"Estudante",
+						"editar"
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "593b44e8-5f89-498f-9805-d33ff1b522eb"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Estudante - Remover",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-desafio}}/api/Estudante/remover?Id=43339ee6-676e-4094-9c97-e0c2fc423728",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"Estudante",
+						"remover"
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "43339ee6-676e-4094-9c97-e0c2fc423728"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
