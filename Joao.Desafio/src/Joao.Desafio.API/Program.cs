@@ -23,11 +23,11 @@ builder.Services.AddSwaggerGen(c =>
     c.IncludeXmlComments(xmlPath);
 });
 
-
 builder.Services.AddAutoMapper(typeof(AppProfile));
 
 builder.Services.AddScoped<ICursoRepositorio, CursoRepositorio>();
 builder.Services.AddScoped<IEstudanteRepositorio, EstudanteRepositorio>();
+builder.Services.AddScoped<ICartaoCreditoRepositorio, CartaoCreditoRepositorio>();
 
 var app = builder.Build();
 

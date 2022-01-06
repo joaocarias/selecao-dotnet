@@ -4,8 +4,9 @@ namespace Joao.Desafio.Dominio.Entidades
 {
     public class CartaoCredito : EntidadeBase
     {
-        public CartaoCredito(string numero, string nomeTitular, string validade, string codigo)
+        public CartaoCredito(Guid estudanteId, string numero, string nomeTitular, string validade, string codigo)
         {
+            EstudanteId = estudanteId;
             Numero = numero;
             NomeTitular = nomeTitular;
             Validade = validade;

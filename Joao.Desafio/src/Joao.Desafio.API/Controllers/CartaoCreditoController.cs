@@ -1,13 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Joao.Desafio.API.DTO;
+using Joao.Desafio.Dominio.Entidades;
+using Joao.Desafio.Dominio.IRepositorios;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Joao.Desafio.API.Controllers
 {
-    public class CartaoCreditoController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CartaoCreditoController : ControllerBase
     {
-        /*
+        private readonly ICartaoCreditoRepositorio _cartaoCreditoRepositorio;
+
+        public CartaoCreditoController(ICartaoCreditoRepositorio cartaoCreditoRepositorio)
+        {
+            _cartaoCreditoRepositorio = cartaoCreditoRepositorio;
+        }
+
+
         // GET obter-todos
         /// <summary>
-        /// Obtem todos os Estudantes cadastrados 
+        /// Obtem todos os Cartões de Créditos cadastrados 
         /// </summary>
         /// <remarks>
         /// Exemplo:
@@ -15,17 +27,17 @@ namespace Joao.Desafio.API.Controllers
         ///     GET /obter-todos
         /// 
         /// </remarks> 
-        /// <returns>Listagem de Estudantes cadastrados .</returns>
-        /// <response code="200">Retorna listagem dos Estudantes</response>
+        /// <returns>Listagem de Cartões de Créditos cadastrados .</returns>
+        /// <response code="200">Retorna listagem dos Cartões de Créditos</response>
         [HttpGet("obter-todos")]
         public IActionResult ObterTodos()
         {
-            return Ok(_estudanteRepositorio.ObteTodos());
+            return Ok(_cartaoCreditoRepositorio.ObteTodos());
         }
 
         // GET obter
         /// <summary>
-        /// Obtem o Estudante cadastrado a partir do Guid do registro do mesmo 
+        /// Obtem o Cartões de Créditos cadastrado a partir do Guid do registro do mesmo 
         /// </summary>
         /// <remarks>
         /// Exemplo:
@@ -33,34 +45,32 @@ namespace Joao.Desafio.API.Controllers
         ///     GET /obter?id=216d5ef4-c339-4bfa-8f47-38e7b3dc563d
         /// 
         /// </remarks> 
-        /// <returns>Estudante com o Guid informado em caso de encontrado.</returns>
-        /// <response code="200">Retorna o Estudante buscado</response>
+        /// <returns>Cartões de Créditos com o Guid informado em caso de encontrado.</returns>
+        /// <response code="200">Retorna o Cartões de Créditos buscado</response>
         [HttpGet("obter")]
         public IActionResult Obter(Guid id)
         {
-            return Ok(_estudanteRepositorio.Obter(id));
+            return Ok(_cartaoCreditoRepositorio.Obter(id));
         }
 
         // POST novo
         /// <summary>
-        /// Registra um novo Estudante
+        /// Registra um novo Cartões de Créditos
         /// </summary>
         /// <remarks>
         /// Exemplo:
         ///
         ///     POST /novo
-        ///     {
-        ///          "nomeCompleto": "João Carias de França",
-        ///          "cartaoCredito": {
-        ///                "numero": "1111222233334444",
-        ///                "nomeTitular": "JOAO C FRANCA",
-        ///                "validade": "01/29",
-        ///                "codigo": "987"
-        ///           }
+        ///     {        
+        ///         "estudanteId": "216d5ef4-c339-4bfa-8f47-38e7b3dc563d",
+        ///         "numero": "1111222233334444",
+        ///         "nomeTitular": "JOAO C FRANCA",
+        ///         "validade": "01/29",
+        ///         "codigo": "987"        
         ///      }
         /// 
         /// </remarks>
-        /// <param name="nomeCompleto">Descrição ou nome do Estudante</param>
+        /// <param name="estudanteId">Guid do estudante dono do cartão de crédito</param>
         /// <param name="numero">Numero do cartão</param>
         /// <param name="nomeTitular">Nome do Titular escrito no cartão</param>
         /// <param name="validade">validade mês/ano do cartão</param>
@@ -68,62 +78,55 @@ namespace Joao.Desafio.API.Controllers
         /// <returns>Retorna informações do estudante cadastrado</returns>
         /// <response code="200">Estudante cadastrado</response>
         [HttpPost("novo")]
-        public IActionResult Novo(EstudanteDTO estudanteNovo)
-        {
-            var cartaoCredito = new CartaoCredito(
-                    estudanteNovo.CartaoCredito.Numero,
-                    estudanteNovo.CartaoCredito.NomeTitular,
-                    estudanteNovo.CartaoCredito.Validade,
-                    estudanteNovo.CartaoCredito.Codigo
+        public IActionResult Novo(CartaoCreditoDTO cartaoNovo)
+        {            
+            var cartao = new CartaoCredito(
+                    cartaoNovo.EstudanteId,
+                    cartaoNovo.Numero,
+                    cartaoNovo.NomeTitular,
+                    cartaoNovo.Validade,
+                    cartaoNovo.Codigo
                 );
 
-            var estudante = new Estudante(estudanteNovo.NomeCompleto, cartaoCredito);
+            _cartaoCreditoRepositorio.Adicionar(cartao);
 
-            _estudanteRepositorio.Adicionar(estudante);
-
-            return Ok(estudante);
+            return Ok(cartao);
         }
 
         // PUT editar
         /// <summary>
-        /// Edita um NomeCompleto existente
+        /// Edita informações sobre o cartão de crédito - não edita o estudante
         /// </summary>
         /// <remarks>
         /// Exemplo:
         ///
         ///     POST /Editar?id=216d5ef4-c339-4bfa-8f47-38e7b3dc563d
-        ///     {
-        ///          "nomeCompleto": "João Carias de França Editado",
-        ///          "cartaoCredito": {
-        ///                "numero": "1111222233334444",
-        ///                "nomeTitular": "JOAO C FRANCA",
-        ///                "validade": "01/29",
-        ///                "codigo": "987"
-        ///           }
+        ///     {          
+        ///          "numero": "1111222233334444",
+        ///          "nomeTitular": "JOAO C FRANCA",
+        ///          "validade": "01/29",
+        ///          "codigo": "987"
         ///      }
         /// 
-        /// </remarks>
-        /// <param name="nomeCompleto">Descrição ou nome do Estudante</param>
+        /// </remarks>        
         /// <param name="numero">Numero do cartão</param>
         /// <param name="nomeTitular">Nome do Titular escrito no cartão</param>
         /// <param name="validade">validade mês/ano do cartão</param>
         /// <param name="codigo">código do cartão</param>
-        /// <returns>Retorna informações do estudante editado </returns>
-        /// <response code="200">Estudante Editado</response>
+        /// <returns>Retorna informações do cartão de crédito editado </returns>
+        /// <response code="200">Cartão de Crédito Editado</response>
         [HttpPut("editar")]
-        public IActionResult Editar(Guid id, EstudanteDTO estudanteEditado)
+        public IActionResult Editar(Guid id, CartaoCreditoEditarDTO cartaoEditado)
         {
-            var estudante = _estudanteRepositorio.Obter(id);
+            var cartao = _cartaoCreditoRepositorio.Obter(id);
 
-            if (estudante != null)
+            if (cartao != null)
             {
-                var cartao = EditcaoCartaoCredito(estudante.CartaoCredito, estudanteEditado.CartaoCredito);
+                cartao.Editar(cartaoEditado.Numero, cartaoEditado.NomeTitular, cartaoEditado.Validade, cartaoEditado.Codigo);
 
-                estudante.Editar(estudanteEditado.NomeCompleto, cartao);
+                _cartaoCreditoRepositorio.Atualizar(cartao);
 
-                _estudanteRepositorio.Atualizar(estudante);
-
-                return Ok(estudante);
+                return Ok(cartao);
             }
 
             return BadRequest();
@@ -131,7 +134,7 @@ namespace Joao.Desafio.API.Controllers
 
         // DELETE remover
         /// <summary>
-        /// Apaga um registro de estudante a partir do Guid.
+        /// Apaga um registro de cartão de crédito a partir do Guid.
         /// </summary>
         /// <remarks>
         /// Exemplo:
@@ -144,40 +147,15 @@ namespace Joao.Desafio.API.Controllers
         [HttpDelete("remover")]
         public IActionResult Remover(Guid id)
         {
-            var estudante = _estudanteRepositorio.Obter(id);
+            var estudante = _cartaoCreditoRepositorio.Obter(id);
             if (estudante != null)
             {
-                _estudanteRepositorio.Apagar(estudante);
+                _cartaoCreditoRepositorio.Apagar(estudante);
 
                 return Ok("Sucesso!");
             }
 
             return BadRequest();
         }
-
-        private CartaoCredito EditcaoCartaoCredito(CartaoCredito? cartaoAtual, CartaoCreditoDTO cartaoEdicao)
-        {
-            if (cartaoAtual != null && !string.IsNullOrEmpty(cartaoAtual.Id.ToString()))
-            {
-                cartaoAtual.Editar(
-                        cartaoEdicao.Numero,
-                        cartaoEdicao.NomeTitular,
-                        cartaoEdicao.Validade,
-                        cartaoEdicao.Codigo
-                    );
-            }
-            else
-            {
-                cartaoAtual = new CartaoCredito(
-                        cartaoEdicao.Numero,
-                        cartaoEdicao.NomeTitular,
-                        cartaoEdicao.Validade,
-                        cartaoEdicao.Codigo
-                    );
-            }
-
-            return cartaoAtual;
-        }
-        */
     }
 }
