@@ -1,7 +1,6 @@
 ﻿using Joao.Desafio.Dominio.Entidades;
 using Joao.Desafio.Dominio.IRepositorios;
 using Joao.Desafio.Infraestrutura.Contextos;
-using Microsoft.EntityFrameworkCore;
 
 namespace Joao.Desafio.Infraestrutura.Repositorios
 {
@@ -75,7 +74,6 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
         {
             try
             {
-                return _contexto.Estudantes.ToList();
                 return _contexto.Estudantes.ToList();
             }
             catch (Exception ex)

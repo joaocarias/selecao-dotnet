@@ -15,6 +15,15 @@ namespace Joao.Desafio.Dominio.Entidades
         public DateTime DataPagamento { get; set; }
 
         [Required]
-        public double Valor { get; set; } 
+        public double Valor { get; set; }
+
+        public Pagamento(Guid estudanteId, double valor)
+        {
+            EstudanteId = estudanteId;
+            DataPagamento = DateTime.Now;
+            Valor = valor;
+
+            DataCadastro = DateTime.Now;
+        }
     }
 }

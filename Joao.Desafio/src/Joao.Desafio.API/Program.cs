@@ -1,8 +1,10 @@
 using Joao.Desafio.API.AutoMapper;
 using Joao.Desafio.Dominio.IRepositorio;
 using Joao.Desafio.Dominio.IRepositorios;
+using Joao.Desafio.Dominio.IServico;
 using Joao.Desafio.Infraestrutura.Contextos;
 using Joao.Desafio.Infraestrutura.Repositorios;
+using Joao.Desafio.Infraestrutura.Servico;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
@@ -28,6 +30,10 @@ builder.Services.AddAutoMapper(typeof(AppProfile));
 builder.Services.AddScoped<ICursoRepositorio, CursoRepositorio>();
 builder.Services.AddScoped<IEstudanteRepositorio, EstudanteRepositorio>();
 builder.Services.AddScoped<ICartaoCreditoRepositorio, CartaoCreditoRepositorio>();
+builder.Services.AddScoped<IPagamentoRepositorio, PagamentoRepositorio>();
+builder.Services.AddScoped<IMatriculaRepositorio, MatriculaRepositorio>();
+
+builder.Services.AddScoped<IPagamentoGerenciadorServico, PagamentoGereciadorServico>();
 
 var app = builder.Build();
 

@@ -16,7 +16,6 @@ namespace Joao.Desafio.API.Controllers
             _cartaoCreditoRepositorio = cartaoCreditoRepositorio;
         }
 
-
         // GET obter-todos
         /// <summary>
         /// Obtem todos os Cartões de Créditos cadastrados 
