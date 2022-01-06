@@ -34,6 +34,7 @@ builder.Services.AddScoped<IPagamentoRepositorio, PagamentoRepositorio>();
 builder.Services.AddScoped<IMatriculaRepositorio, MatriculaRepositorio>();
 
 builder.Services.AddScoped<IPagamentoGerenciadorServico, PagamentoGereciadorServico>();
+builder.Services.AddScoped<IEmailServico, EmailServico>();
 
 var app = builder.Build();
 

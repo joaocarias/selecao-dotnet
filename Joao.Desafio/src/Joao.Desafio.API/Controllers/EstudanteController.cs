@@ -62,16 +62,18 @@ namespace Joao.Desafio.API.Controllers
         ///     POST /novo
         ///     {
         ///          "nomeCompleto": "João Carias de França",
+        ///          "email": "joao@email.com
         ///     }
         /// 
         /// </remarks>
         /// <param name="nomeCompleto">Descrição ou nome do Estudante</param>
+        /// <param name="email">Endereco de Email do Estudante</param>
         /// <returns>Retorna informações do estudante cadastrado</returns>
         /// <response code="200">Estudante cadastrado</response>
         [HttpPost("novo")]
         public IActionResult Novo(EstudanteDTO estudanteNovo)
         {        
-            var estudante = new Estudante(estudanteNovo.NomeCompleto);
+            var estudante = new Estudante(estudanteNovo.NomeCompleto, estudanteNovo.Email);
 
             _estudanteRepositorio.Adicionar(estudante);
 
@@ -88,6 +90,7 @@ namespace Joao.Desafio.API.Controllers
         ///     POST /Editar?id=216d5ef4-c339-4bfa-8f47-38e7b3dc563d
         ///     {
         ///          "nomeCompleto": "João Carias de França Editado",
+        ///          "email": "joao@email.com
         ///      }
         /// 
         /// </remarks>
@@ -101,7 +104,7 @@ namespace Joao.Desafio.API.Controllers
            
             if (estudante != null)
             {
-                estudante.Editar(estudanteEditado.NomeCompleto);
+                estudante.Editar(estudanteEditado.NomeCompleto, estudanteEditado.Email);
 
                 _estudanteRepositorio.Atualizar(estudante);
 

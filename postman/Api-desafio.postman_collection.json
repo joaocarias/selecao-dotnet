@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://{{api-desafio}}/api/Curso/obter-todos",
+					"raw": "https://{{api-desafio}}/api/Curso/obter?Id=216d5ef4-c339-4bfa-8f47-38e7b3dc563d",
 					"protocol": "https",
 					"host": [
 						"{{api-desafio}}"
@@ -19,7 +19,13 @@
 					"path": [
 						"api",
 						"Curso",
-						"obter-todos"
+						"obter"
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "216d5ef4-c339-4bfa-8f47-38e7b3dc563d"
+						}
 					]
 				}
 			},
@@ -52,7 +58,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n     \"descricao\": \"Matemática\"\r\n}",
+					"raw": "{\r\n     \"descricao\": \"Matemática 2\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -81,7 +87,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n     \"nomeCompleto\": \"João Carias de França editado\"\r\n}",
+					"raw": "{\r\n     \"descricao\": \"Matemática editado\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -89,7 +95,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{api-desafio}}/api/Curso/editar?Id=593b44e8-5f89-498f-9805-d33ff1b522eb",
+					"raw": "https://{{api-desafio}}/api/Curso/editar?Id=ea25b4c6-6fd8-460a-8a2e-206d9d604bf3",
 					"protocol": "https",
 					"host": [
 						"{{api-desafio}}"
@@ -102,7 +108,7 @@
 					"query": [
 						{
 							"key": "Id",
-							"value": "593b44e8-5f89-498f-9805-d33ff1b522eb"
+							"value": "ea25b4c6-6fd8-460a-8a2e-206d9d604bf3"
 						}
 					]
 				}
@@ -266,6 +272,200 @@
 							"key": "Id",
 							"value": "43339ee6-676e-4094-9c97-e0c2fc423728"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cartão de Crédito - Obter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-desafio}}/api/CartaoCredito/obter?Id=93b44e8-5f89-498f-9805-d33ff1b522eb",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"CartaoCredito",
+						"obter"
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "93b44e8-5f89-498f-9805-d33ff1b522eb"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cartão de Crédito - Obter Todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-desafio}}/api/CartaoCredito/obter-todos",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"CartaoCredito",
+						"obter-todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cartão de Crédito -  Novo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"estudanteId\": \"77ef6b22-6ba2-4ba0-b5a7-a990fc8b4a94\",\r\n  \"numero\": \"1111222233334444\",\r\n  \"nomeTitular\": \"Joao c franca\",\r\n  \"validade\": \"01/02\",\r\n  \"codigo\": \"878\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{api-desafio}}/api/CartaoCredito/novo",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"CartaoCredito",
+						"novo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cartão de Crédito - Editar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numero\": \"5555666611112222\",\r\n  \"nomeTitular\": \"JOAO C FRANCA\",\r\n  \"validade\": \"11/29\",\r\n  \"codigo\": \"521\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{api-desafio}}/api/CartaoCredito/editar?Id=0d9386cc-f1f0-4456-9239-2b134068a4af",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"CartaoCredito",
+						"editar"
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "0d9386cc-f1f0-4456-9239-2b134068a4af"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cartão de Crédito - Remover",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-desafio}}/api/CartaoCredito/remover?Id=476a6169-6072-40ce-8e73-d7f08660f3d0",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"CartaoCredito",
+						"remover"
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "476a6169-6072-40ce-8e73-d7f08660f3d0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Matricula -  Matricular",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"estudanteId\": \"77ef6b22-6ba2-4ba0-b5a7-a990fc8b4a94\",\r\n  \"cursoId\": \"77ef6b22-6ba2-4ba0-b5a7-a990fc8b4a94\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{api-desafio}}/api/Matricula/matricular",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"Matricula",
+						"matricular"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pagamento -  Novo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"estudanteId\": \"77ef6b22-6ba2-4ba0-b5a7-a990fc8b4a94\",\r\n  \"valor\": 200.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{api-desafio}}/api/Pagamento/novo",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"Pagamento",
+						"novo"
 					]
 				}
 			},

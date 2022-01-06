@@ -2,6 +2,7 @@
 using Joao.Desafio.Dominio.Entidades;
 using Joao.Desafio.Dominio.IRepositorios;
 using Joao.Desafio.Dominio.IServico;
+using Joao.Desafio.Dominio.Uteis;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Joao.Desafio.API.Controllers
@@ -12,11 +13,13 @@ namespace Joao.Desafio.API.Controllers
     {
         private readonly IMatriculaRepositorio _matriculaRepositorio;
         private readonly IPagamentoGerenciadorServico _pagamentoGerenciadorServico;
+        private readonly IEmailServico _emailServico;
 
-        public MatriculaController(IMatriculaRepositorio matriculaRepositorio, IPagamentoGerenciadorServico pagamentoGerenciadorServico)
+        public MatriculaController(IMatriculaRepositorio matriculaRepositorio, IPagamentoGerenciadorServico pagamentoGerenciadorServico, IEmailServico emailServico)
         {
             _matriculaRepositorio = matriculaRepositorio;
             _pagamentoGerenciadorServico = pagamentoGerenciadorServico;
+            _emailServico = emailServico;
         }
 
         // POST matricular
@@ -46,10 +49,23 @@ namespace Joao.Desafio.API.Controllers
 
                 _matriculaRepositorio.Adicionar(matricula);
 
+                EnviarEmail(matricula);
+
                 return Ok(matricula);
             }
 
             return BadRequest("Não foi possível realizar a matrícula");            
+        }
+
+        private void EnviarEmail(Matricula matricula)
+        {
+            var info = _matriculaRepositorio.Obter(matricula.Id);
+            if (info != null)
+            {
+                var mensagem = $"Olá {info.Estudante.NomeCompleto}, sua matricula realizada com " +
+                    $" Sucesso no curso {info.Curso.Descricao} na data {info.DataCadastro}. ";
+                _emailServico.EnviarEmail(Constantes.EMAIL_REMETENTE, info.Estudante.Email, mensagem);
+            }
         }
     }
 }

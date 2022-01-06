@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joao.Desafio.API", "src\Joao.Desafio.API\Joao.Desafio.API.csproj", "{04CF5F6E-7540-48D7-820D-7F43C1F19C4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joao.Desafio.API", "src\Joao.Desafio.API\Joao.Desafio.API.csproj", "{04CF5F6E-7540-48D7-820D-7F43C1F19C4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joao.Desafio.Dominio", "src\Joao.Desafio.Dominio\Joao.Desafio.Dominio.csproj", "{535CF8EC-84D3-4CEE-82D2-952E20E77A05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joao.Desafio.Dominio", "src\Joao.Desafio.Dominio\Joao.Desafio.Dominio.csproj", "{535CF8EC-84D3-4CEE-82D2-952E20E77A05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joao.Desafio.Infraestrutura", "src\Joao.Desafio.Infraestrutura\Joao.Desafio.Infraestrutura.csproj", "{2B606D72-C3D8-497C-BA9B-0FC65B67054E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joao.Desafio.Infraestrutura", "src\Joao.Desafio.Infraestrutura\Joao.Desafio.Infraestrutura.csproj", "{2B606D72-C3D8-497C-BA9B-0FC65B67054E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{2864FA3C-E6CF-46C3-B105-5820E3D4505A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{2B606D72-C3D8-497C-BA9B-0FC65B67054E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B606D72-C3D8-497C-BA9B-0FC65B67054E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B606D72-C3D8-497C-BA9B-0FC65B67054E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2864FA3C-E6CF-46C3-B105-5820E3D4505A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2864FA3C-E6CF-46C3-B105-5820E3D4505A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2864FA3C-E6CF-46C3-B105-5820E3D4505A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2864FA3C-E6CF-46C3-B105-5820E3D4505A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

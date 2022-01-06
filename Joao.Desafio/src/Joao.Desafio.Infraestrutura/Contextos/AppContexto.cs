@@ -13,6 +13,7 @@ namespace Joao.Desafio.Infraestrutura.Contextos
         public DbSet<Matricula> Matriculas { get; set; }
         public DbSet<Pagamento> Pagamentos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
-       
+        public DbSet<Email> Emails { get; set; }
+
     }
 }
