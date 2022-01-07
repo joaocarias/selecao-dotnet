@@ -55,7 +55,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
             }
         }
 
-        public List<Email>? ObteTodos()
+        public IList<Email>? ObteTodos()
         {
             throw new NotImplementedException();
         }

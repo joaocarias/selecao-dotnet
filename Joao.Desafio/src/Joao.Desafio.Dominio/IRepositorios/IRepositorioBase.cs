@@ -2,7 +2,7 @@
 {
     public interface IRepositorioBase<T> where T : class
     {
-        List<T>? ObteTodos();
+        IList<T>? ObteTodos();
         T? Obter(Guid id);
         bool Adicionar(T entity);
         bool Atualizar(T entity);

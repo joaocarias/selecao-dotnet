@@ -32,6 +32,7 @@ builder.Services.AddScoped<IEstudanteRepositorio, EstudanteRepositorio>();
 builder.Services.AddScoped<ICartaoCreditoRepositorio, CartaoCreditoRepositorio>();
 builder.Services.AddScoped<IPagamentoRepositorio, PagamentoRepositorio>();
 builder.Services.AddScoped<IMatriculaRepositorio, MatriculaRepositorio>();
+builder.Services.AddScoped<IEmailRepositorio, EmailRepositorio>();
 
 builder.Services.AddScoped<IPagamentoGerenciadorServico, PagamentoGereciadorServico>();
 builder.Services.AddScoped<IEmailServico, EmailServico>();
@@ -49,5 +50,11 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors(option =>
+        option.AllowAnyOrigin()
+                .WithHeaders("accept", "content-type", "origin")
+                .AllowAnyMethod()
+        );
 
 app.Run();

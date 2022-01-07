@@ -46,7 +46,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
             }
         }
 
-        public List<Pagamento>? ObteTodos()
+        public IList<Pagamento>? ObteTodos()
         {
             try
             {

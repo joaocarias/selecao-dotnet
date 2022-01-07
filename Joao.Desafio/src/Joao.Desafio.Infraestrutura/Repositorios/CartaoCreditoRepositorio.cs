@@ -71,7 +71,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
             }
         }
 
-        public List<CartaoCredito>? ObteTodos()
+        public IList<CartaoCredito>? ObteTodos()
         {
             try
             {

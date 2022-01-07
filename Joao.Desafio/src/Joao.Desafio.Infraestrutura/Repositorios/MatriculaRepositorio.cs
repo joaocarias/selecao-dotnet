@@ -49,7 +49,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
             return _contexto.Matriculas.Include(m => m.Estudante).Include(m => m.Curso).Where(m => m.Id.Equals(id)).FirstOrDefault();
         }
 
-        public List<Matricula>? ObteTodos()
+        public IList<Matricula>? ObteTodos()
         {
             throw new NotImplementedException();
         }

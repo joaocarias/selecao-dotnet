@@ -74,7 +74,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
             }
         }
 
-        public List<Curso>? ObteTodos()
+        public IList<Curso>? ObteTodos()
         {
             try
             {

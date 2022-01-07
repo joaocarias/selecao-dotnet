@@ -1,0 +1,43 @@
+<h1>Estudantes</h1>
+<a class="btn btn-primary"  [routerLink]="['/estudantes/cadastrar']" role="button">Novo Cadastro</a>
+
+
+<div class="card mt-3 mb-3">
+  <div class="card-header">
+    Lista
+  </div>
+  <div class="card-body">
+
+    <table class="table table-sm">
+      <thead *ngIf="!flagListaVazia">
+          <tr>
+              <th>Nome</th>
+              <th>E-mail</th>
+
+              <th>Ações</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of lista">
+              <td><span>{{ item.nomeCompleto }}</span></td>
+              <td><span>{{ item.email }}</span></td>
+
+              <td>
+                  <a class="btn btn-success btn-sm" (click)="editEstudante(item)"> Acessar </a>
+
+                  <a  class="btn btn-primary btn-sm" [routerLink]="['/estudantes/editar']" > Editar </a>
+                  <a class="btn btn-danger btn-sm" (click)="deleteEstudante(item)"> Deletar </a>
+              </td>
+          </tr>
+
+          <tr *ngIf="flagListaVazia">
+            <div class="alert alert-warning" role="alert">
+              Nenhum registro encontrado!
+            </div>
+          </tr>
+      </tbody>
+  </table>
+
+
+  </div>
+</div>

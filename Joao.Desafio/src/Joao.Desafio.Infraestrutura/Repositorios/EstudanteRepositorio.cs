@@ -70,7 +70,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
             }
         }
 
-        public List<Estudante>? ObteTodos()
+        public IList<Estudante>? ObteTodos()
         {
             try
             {
