@@ -30,19 +30,40 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
 
         public bool Apagar(Pagamento entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                entity.Excluir();
+                _contexto.Pagamentos.Update(entity);
+                _contexto.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public bool Atualizar(Pagamento entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _contexto.Pagamentos.Update(entity);
+                _contexto.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public Pagamento? Obter(Guid id)
         {
             try
             {
-                return _contexto.Pagamentos.Include(p => p.Estudante).Where(p => p.Id.Equals(id)).FirstOrDefault(); 
+                return _contexto.Pagamentos.Include(p => p.Estudante).Where(p => p.Id.Equals(id) && p.Ativo).FirstOrDefault(); 
             }
             catch (Exception ex)
             {
@@ -54,7 +75,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
         {
             try
             {
-                return _contexto.Pagamentos.Include(p => p.Estudante).Where(p => p.EstudanteId.Equals(estudanteId)).ToList();
+                return _contexto.Pagamentos.Include(p => p.Estudante).Where(p => p.EstudanteId.Equals(estudanteId) && p.Ativo).ToList();
             }
             catch (Exception ex)
             {
@@ -66,7 +87,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
         {
             try
             {
-                return _contexto.Pagamentos.Include(p => p.Estudante).ToList();                
+                return _contexto.Pagamentos.Include(p => p.Estudante).Where(p => p.Ativo).ToList();                
             }
             catch (Exception ex)
             {

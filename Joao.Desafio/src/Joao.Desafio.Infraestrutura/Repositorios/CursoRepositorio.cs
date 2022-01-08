@@ -1,11 +1,6 @@
 ﻿using Joao.Desafio.Dominio.Entidades;
 using Joao.Desafio.Dominio.IRepositorio;
 using Joao.Desafio.Infraestrutura.Contextos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Joao.Desafio.Infraestrutura.Repositorios
 {
@@ -37,7 +32,8 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
         {
             try
             {
-                _contexto.Cursos.Remove(entity);
+                entity.Excluir();
+                _contexto.Cursos.Update(entity);
                 _contexto.SaveChanges();
             }
             catch (Exception ex)
@@ -66,7 +62,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
         {
             try
             {
-                return _contexto.Cursos.Where(c => c.Id.Equals(id)).FirstOrDefault();                
+                return _contexto.Cursos.Where(c => c.Id.Equals(id) && c.Ativo).FirstOrDefault();                
             }
             catch (Exception ex)
             {
@@ -78,7 +74,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
         {
             try
             {
-                return _contexto.Cursos.ToList();
+                return _contexto.Cursos.Where(c => c.Ativo).ToList();
             }
             catch (Exception ex)
             {

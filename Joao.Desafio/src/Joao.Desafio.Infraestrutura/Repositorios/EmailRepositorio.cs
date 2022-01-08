@@ -30,24 +30,53 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
 
         public bool Apagar(Email entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                entity.Excluir();
+                _contexto.Emails.Update(entity);
+                _contexto.SaveChanges();                  
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public bool Atualizar(Email entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _contexto.Emails.Update(entity);
+                _contexto.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
+
         }
 
         public Email? Obter(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _contexto.Emails.Where(c => c.Id.Equals(id) && c.Ativo).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public IList<Email> BuscarPorDestinatario(string destinatario)
         {
             try
             {
-                return _contexto.Emails.Where(e => e.Destinatario.Equals(destinatario)).ToList();
+                return _contexto.Emails.Where(e => e.Destinatario.Equals(destinatario) && e.Ativo).ToList();
             }
             catch (Exception ex)
             {
@@ -57,7 +86,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
 
         public IList<Email>? ObteTodos()
         {
-            throw new NotImplementedException();
+            return _contexto.Emails.Where(e => e.Ativo).ToList();
         }
     }
 }

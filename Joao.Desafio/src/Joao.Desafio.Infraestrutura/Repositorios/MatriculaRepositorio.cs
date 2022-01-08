@@ -2,11 +2,6 @@
 using Joao.Desafio.Dominio.IRepositorios;
 using Joao.Desafio.Infraestrutura.Contextos;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Joao.Desafio.Infraestrutura.Repositorios
 {
@@ -36,22 +31,43 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
 
         public bool Apagar(Matricula entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                entity.Excluir();
+                _contexto.Matriculas.Update(entity);
+                _contexto.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public bool Atualizar(Matricula entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _contexto.Matriculas.Update(entity);
+                _contexto.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public Matricula? Obter(Guid id)
         {
-            return _contexto.Matriculas.Include(m => m.Estudante).Include(m => m.Curso).Where(m => m.Id.Equals(id)).FirstOrDefault();
+            return _contexto.Matriculas.Include(m => m.Estudante).Include(m => m.Curso).Where(m => m.Id.Equals(id) && m.Ativo).FirstOrDefault();
         }
 
         public IList<Matricula>? ObteTodos()
         {
-            return _contexto.Matriculas.Include(m => m.Estudante).Include(m => m.Curso).ToList();
+            return _contexto.Matriculas.Include(m => m.Estudante).Include(m => m.Curso).Where(x => x.Ativo).ToList();
         }
     }
 }

@@ -12,5 +12,14 @@ namespace Joao.Desafio.Dominio.Entidades
         public DateTime DataCadastro { get; set; }
 
         public DateTime? DataEdicao { get; set;}
+
+        [Required]
+        public bool Ativo { get; set; } = true;
+
+        public void Excluir()
+        {
+            Ativo = false;
+            DataEdicao = DateTime.Now;
+        }
     }
 }

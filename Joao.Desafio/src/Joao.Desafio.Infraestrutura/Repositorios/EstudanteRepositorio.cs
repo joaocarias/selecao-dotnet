@@ -32,6 +32,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
         {
             try
             {
+                entity.Excluir();
                 _contexto.Estudantes.Remove(entity);
                 _contexto.SaveChanges();
             }
@@ -62,7 +63,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
         {
             try
             {
-                return _contexto.Estudantes.Where(c => c.Id.Equals(id)).FirstOrDefault();
+                return _contexto.Estudantes.Where(c => c.Id.Equals(id) && c.Ativo).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -74,7 +75,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
         {
             try
             {
-                return _contexto.Estudantes.ToList();
+                return _contexto.Estudantes.Where(x => x.Ativo).ToList();
             }
             catch (Exception ex)
             {
