@@ -26,18 +26,20 @@ namespace Joao.Desafio.API.Controllers
         ///     POST /novo
         ///     {
         ///          "estudanteId": "216d5ef4-c339-4bfa-8f47-38e7b3dc563d",
-        ///          "valor": 200.00
+        ///          "valor": 200.00,
+        ///          "cartaoCreditoId": "216d5ef4-c339-4bfa-8f47-38e7b3dc563d",
         ///     }
         /// 
         /// </remarks>
         /// <param name="estudanteId">Guid do Estudante que realiza o pagamento</param>
+        /// <param name="cartaoCreditoId">Guid do Cartao de Credito que é usado para o pagamento</param>
         /// <param name="valor">Valor do pagamento</param>
         /// <returns>Retorna informações do pagamento cadastrado</returns>
         /// <response code="200">Pagamento cadastrado</response>
         [HttpPost("novo")]
         public IActionResult Novo(PagamentoDTO pagamentoNovo)
         {
-            var pagamento = new Pagamento(pagamentoNovo.EstudanteId, pagamentoNovo.Valor);
+            var pagamento = new Pagamento(pagamentoNovo.EstudanteId, pagamentoNovo.Valor, pagamentoNovo.CartaoCreditoId);
 
             _pagamentoRepositorio.Adicionar(pagamento);
 

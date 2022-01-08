@@ -17,11 +17,18 @@ namespace Joao.Desafio.Dominio.Entidades
         [Required]
         public double Valor { get; set; }
 
-        public Pagamento(Guid estudanteId, double valor)
+        [Required]
+        public Guid CartaoCreditoId { get; set; }
+
+        [ForeignKey(nameof(CartaoCreditoId))]
+        public CartaoCredito? CartaoCredito { get; set; }
+
+        public Pagamento(Guid estudanteId, double valor, Guid cartaoCreditoId)
         {
             EstudanteId = estudanteId;
             DataPagamento = DateTime.Now;
             Valor = valor;
+            CartaoCreditoId = cartaoCreditoId;
 
             DataCadastro = DateTime.Now;
         }

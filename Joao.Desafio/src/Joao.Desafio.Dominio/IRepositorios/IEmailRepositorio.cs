@@ -5,6 +5,7 @@ namespace Joao.Desafio.Dominio.IRepositorios
 {
     public interface IEmailRepositorio : IRepositorioBase<Email>
     {
-        IList<Email> ObterPorRemetentes(string rementente);
+        IList<Email> BuscarPorDestinatario(string destinatario);
+
     }
 }

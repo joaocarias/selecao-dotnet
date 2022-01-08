@@ -51,7 +51,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
 
         public IList<Matricula>? ObteTodos()
         {
-            throw new NotImplementedException();
+            return _contexto.Matriculas.Include(m => m.Estudante).Include(m => m.Curso).ToList();
         }
     }
 }

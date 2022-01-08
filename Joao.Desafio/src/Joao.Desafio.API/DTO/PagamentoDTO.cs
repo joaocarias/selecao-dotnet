@@ -9,5 +9,9 @@ namespace Joao.Desafio.API.DTO
 
         [JsonPropertyName("valor")]
         public double Valor { get; set; }
+
+        [JsonPropertyName("cartaoCreditoId")]
+        public Guid CartaoCreditoId { get; set; }
+
     }
 }

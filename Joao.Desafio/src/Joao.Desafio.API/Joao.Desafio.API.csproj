@@ -19,4 +19,8 @@
     <ProjectReference Include="..\Joao.Desafio.Infraestrutura\Joao.Desafio.Infraestrutura.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<InternalsVisibleTo Include="Tests" />
+	</ItemGroup>
+
 </Project>

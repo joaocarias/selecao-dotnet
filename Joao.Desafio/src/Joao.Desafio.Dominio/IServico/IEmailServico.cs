@@ -1,7 +1,10 @@
-﻿namespace Joao.Desafio.Dominio.IServico
+﻿using Joao.Desafio.Dominio.Entidades;
+
+namespace Joao.Desafio.Dominio.IServico
 {
     public interface IEmailServico
     {
-        void EnviarEmail(string emailRemetente, string emailDestinatario, string mensagem);
+        void EnviarEmail(Matricula? matricula);
+       // void EnviarEmail(string emailRemetente, string emailDestinatario, string mensagem);
     }
 }

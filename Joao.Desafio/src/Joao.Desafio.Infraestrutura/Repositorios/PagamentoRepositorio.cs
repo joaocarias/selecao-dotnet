@@ -16,7 +16,16 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
 
         public bool Adicionar(Pagamento entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _contexto.Pagamentos.Add(entity);
+                _contexto.SaveChanges();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }                
         }
 
         public bool Apagar(Pagamento entity)
@@ -31,7 +40,14 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
 
         public Pagamento? Obter(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _contexto.Pagamentos.Include(p => p.Estudante).Where(p => p.Id.Equals(id)).FirstOrDefault(); 
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public IList<Pagamento> ObterPorEstudanteId(Guid estudanteId)

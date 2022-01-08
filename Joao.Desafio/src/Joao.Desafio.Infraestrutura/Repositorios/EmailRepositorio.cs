@@ -43,11 +43,11 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
             throw new NotImplementedException();
         }
 
-        public IList<Email> ObterPorRemetentes(string rementente)
+        public IList<Email> BuscarPorDestinatario(string destinatario)
         {
             try
             {
-                return _contexto.Emails.Where(e => e.Equals(rementente)).ToList();
+                return _contexto.Emails.Where(e => e.Destinatario.Equals(destinatario)).ToList();
             }
             catch (Exception ex)
             {

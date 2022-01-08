@@ -59,13 +59,8 @@ namespace Joao.Desafio.API.Controllers
 
         private void EnviarEmail(Matricula matricula)
         {
-            var info = _matriculaRepositorio.Obter(matricula.Id);
-            if (info != null)
-            {
-                var mensagem = $"Olá {info.Estudante.NomeCompleto}, sua matricula realizada com " +
-                    $" Sucesso no curso {info.Curso.Descricao} na data {info.DataCadastro}. ";
-                _emailServico.EnviarEmail(Constantes.EMAIL_REMETENTE, info.Estudante.Email, mensagem);
-            }
+            var matriculaInclude = _matriculaRepositorio.Obter(matricula.Id);
+            _emailServico.EnviarEmail(matriculaInclude);
         }
     }
 }
