@@ -17,6 +17,9 @@ namespace Tests.Integracao
         [Theory]
         [InlineData("/api/Estudante/obter-todos")]
         [InlineData("/api/Curso/obter-todos")]
+        [InlineData("/api/CartaoCredito/obter-todos")]
+        [InlineData("/api/CartaoCredito/obter-cartoes-creditos-por-estudante/?id=216d5ef4-c339-4bfa-8f47-38e7b3dc563d")]
+        [InlineData("/api/Email/obter-por-destinatario/?destinatario=joao@mail.com")]
         public async Task ObterTodosReturnaSucesso(string url)
         {
             // Arrange

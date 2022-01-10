@@ -21,7 +21,7 @@ namespace Joao.Desafio.API.Controllers
         /// <remarks>
         /// Exemplo:
         ///
-        ///     GET /obter-por-destinatario?destinatario=joao@mail.com
+        ///     GET /obter-por-destinatario/?destinatario=joao@mail.com
         /// 
         /// </remarks>
         /// <returns>Retorna lista de emails de acordo com o destinatario </returns>
