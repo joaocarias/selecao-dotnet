@@ -1,0 +1,30 @@
+<h1>Matricula</h1>
+
+<div class="card">
+  <div class="card-header">
+    Cadastrar
+  </div>
+  <div class="card-body">
+
+    <form id="add-form" (ngSubmit)="save(form)" #form="ngForm">
+
+      <input type="hidden" id="estudanteId" name="estudanteId"
+          [(ngModel)]="matricula.estudanteId"
+      />
+
+      <div class="col-3 mb-3">
+          <label for="cursoId" class="form-label"> Curso </label>
+          <select name="cursoId" id="cursoId" class="form-control" [(ngModel)]="matricula.cursoId" required>
+            <option *ngFor="let curso of listaCurso" [value]="curso.id">{{curso.descricao}}</option>
+          </select>
+      </div>
+
+      <div class="mb-3">
+        <button class="btn btn-primary btn-sm" type="submit"> Salvar </button>
+        <a class="btn btn-warning btn-sm" [routerLink]="['/estudantes']" > Cancelar </a>
+      </div>
+  </form>
+
+
+  </div>
+</div>

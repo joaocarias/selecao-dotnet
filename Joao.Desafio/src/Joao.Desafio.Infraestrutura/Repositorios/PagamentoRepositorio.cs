@@ -75,7 +75,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
         {
             try
             {
-                return _contexto.Pagamentos.Include(p => p.Estudante).Where(p => p.EstudanteId.Equals(estudanteId) && p.Ativo).ToList();
+                return _contexto.Pagamentos.Include(p => p.Estudante).Include(p => p.CartaoCredito).Where(p => p.EstudanteId.Equals(estudanteId) && p.Ativo).ToList();
             }
             catch (Exception ex)
             {
@@ -87,7 +87,7 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
         {
             try
             {
-                return _contexto.Pagamentos.Include(p => p.Estudante).Where(p => p.Ativo).ToList();                
+                return _contexto.Pagamentos.Include(p => p.Estudante).Include(p => p.CartaoCredito).Where(p => p.Ativo).ToList();                
             }
             catch (Exception ex)
             {

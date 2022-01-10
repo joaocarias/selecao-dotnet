@@ -1,0 +1,155 @@
+<h1>Estudantes</h1>
+
+<div class="card mt-3 mb-3">
+  <div class="card-header">
+    Informações
+  </div>
+  <div class="card-body">
+    <div class="row">
+    <div class="col-6">
+        Nome: <strong>{{ estudante.nomeCompleto }}</strong>
+    </div>
+    <div class="col-6">
+      E-mail: <strong>{{ estudante.email }}</strong>
+    </div>
+  </div>
+  </div>
+
+</div>
+
+<div class="card mt-3 mb-3">
+  <div class="card-header">
+    Caixa de E-mail
+  </div>
+  <div class="card-body">
+
+    <div *ngIf="listaEmail.length > 0" >
+      <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Remetente</th>
+                <th>Destinatário</th>
+                <th>Mensagem</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listaEmail">
+                <td><span>{{ item.dataCadastro |date: "dd/MM/yyyy HH:mm:ss" }}</span></td>
+                <td><span>{{ item.remetente }}</span></td>
+                <td><span>{{ item.destinatario }}</span></td>
+                <td><span>{{ item.mensagem }}</span></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div *ngIf="listaEmail.length === 0" class="alert alert-warning" role="alert">
+      Estudante ainda não recebeu e-amil.
+    </div>
+</div>
+</div>
+
+<div class="card mt-3 mb-3">
+  <div class="card-header">
+    Cartão de Crédito
+  </div>
+  <div class="card-body">
+
+    <div *ngIf="listaCartaoCredito.length > 0" >
+      <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Titular</th>
+                <th>Validade</th>
+                <th>Código</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listaCartaoCredito">
+                <td><span>{{ item.numero }}</span></td>
+                <td><span>{{ item.nomeTitular }}</span></td>
+                <td><span>{{ item.validade }}</span></td>
+                <td><span>{{ item.codigo }}</span></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div *ngIf="listaCartaoCredito.length === 0" class="alert alert-warning" role="alert">
+      Estudante ainda não possui Cartão de Crédito. <a [routerLink]="['/cartoes/cadastrar', estudante.id]" >Clique aqui para cadastrar!</a>
+    </div>
+
+</div>
+</div>
+
+<div *ngIf="listaCartaoCredito.length > 0" class="mb-3">
+
+<div class="card mt-3 mb-3">
+  <div class="card-header">
+    Pagamento efetuados
+  </div>
+  <div class="card-body">
+
+    <div *ngIf="listaPagamento.length > 0" >
+      <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Data Pagamento</th>
+                <th>Cartão Pagamento</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listaPagamento">
+                <td><span>{{ item.dataPagamento |date: "dd/MM/yyyy HH:mm:ss" }}</span></td>
+                <td><span>{{ item.cartaoCredito.numero }}</span></td>
+                <td><span>{{ item.valor }}</span></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div *ngIf="listaPagamento.length === 0" class="alert alert-warning" role="alert">
+      Estudante ainda não realizou pagamento. <a [routerLink]="['/pagamentos/cadastrar', estudante.id]" >Clique aqui para cadastrar!</a>
+    </div>
+</div>
+</div>
+</div>
+
+<div *ngIf="listaPagamento.length > 0" class="mb-3">
+
+  <div class="card mt-3 mb-3">
+    <div class="card-header">
+      Matricula efetuadas
+    </div>
+    <div class="card-body">
+
+      <div *ngIf="listaMatricula.length > 0" >
+        <table class="table table-sm">
+          <thead>
+              <tr>
+                  <th>Data Matricula</th>
+                  <th>Curso</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of listaMatricula">
+                  <td><span>{{ item.dataCadastro |date: "dd/MM/yyyy HH:mm:ss" }}</span></td>
+                  <td><span>{{ item.curso.descricao }}</span></td>
+              </tr>
+          </tbody>
+      </table>
+      </div>
+
+      <div *ngIf="listaPagamento.length === 0" class="alert alert-warning" role="alert">
+        Estudante ainda não realizou pagamento. É necessário realizar pagamento pra realizar matricula.
+      </div>
+
+      <div *ngIf="listaMatricula.length === 0" class="alert alert-warning" role="alert">
+        <a [routerLink]="['/matriculas/cadastrar', estudante.id]" >Clique aqui para cadastrar!</a>
+      </div>
+  </div>
+  </div>
+  </div>

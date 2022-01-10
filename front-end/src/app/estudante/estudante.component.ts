@@ -13,12 +13,11 @@ export class EstudanteComponent implements OnInit {
 
   estudate = {} as IEstudante;
   lista: IEstudante[] = [];
-  flagListaVazia: Boolean = false;
 
   constructor(private router: Router, private estudantesService: EstudantesService) { }
 
   ngOnInit(): void {
-    this.obterTodos()
+    this.obterTodos();
   }
 
   obterTodos() {
@@ -27,9 +26,5 @@ export class EstudanteComponent implements OnInit {
       }
     )
   }
-
-  editEstudante(estudante: IEstudante){}
-
-  deleteEstudante(estudante: IEstudante){}
 
 }

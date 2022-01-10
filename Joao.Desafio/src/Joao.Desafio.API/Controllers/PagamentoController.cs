@@ -27,7 +27,7 @@ namespace Joao.Desafio.API.Controllers
         ///     {
         ///          "estudanteId": "216d5ef4-c339-4bfa-8f47-38e7b3dc563d",
         ///          "valor": 200.00,
-        ///          "cartaoCreditoId": "216d5ef4-c339-4bfa-8f47-38e7b3dc563d",
+        ///          "cartaoCreditoId": "216d5ef4-c339-4bfa-8f47-38e7b3dc563d"
         ///     }
         /// 
         /// </remarks>
@@ -44,6 +44,24 @@ namespace Joao.Desafio.API.Controllers
             _pagamentoRepositorio.Adicionar(pagamento);
 
             return Ok(pagamento);
+        }
+
+        // GET obter-por-estudante
+        /// <summary>
+        /// Obtem a partir do guid do estudante, informacoes sobre pagamentos
+        /// </summary>
+        /// <remarks>
+        /// Exemplo:
+        ///
+        ///     GET /obter-pagamentos-por-estudante?estudanteId=216d5ef4-c339-4bfa-8f47-38e7b3dc563d
+        /// 
+        /// </remarks>
+        /// <returns>Retorna lista de pagamentos do estudante com informações do cadastrado</returns>
+        /// <response code="200">Pagamentos do estudante</response>
+        [HttpGet("obter-por-estudante")]
+        public IActionResult ObterPagamentosPorEstudante(Guid estudanteId)
+        {
+            return Ok(_pagamentoRepositorio.ObterPorEstudanteId(estudanteId));
         }
     }
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ICurso } from '../interface/icurso';
+import { CursosService } from '../servicos/cursos.service';
 
 @Component({
   selector: 'app-curso',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CursoComponent implements OnInit {
 
-  constructor() { }
+  estudate = {} as ICurso;
+  lista: ICurso[] = [];
+
+  constructor(private router: Router, private cursosService: CursosService) { }
 
   ngOnInit(): void {
+    this.obterTodos();
   }
 
+  obterTodos() {
+    this.cursosService.obterTodos().subscribe((cursos: ICurso[]) => {
+        this.lista = cursos;
+      }
+    )
+  }
 }

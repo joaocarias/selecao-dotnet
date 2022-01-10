@@ -5,6 +5,6 @@ namespace Joao.Desafio.Dominio.IRepositorios
 {
     public interface IMatriculaRepositorio : IRepositorioBase<Matricula>
     {
-
+        IList<Matricula> ObterMatriculasPorEstudante(Guid estudanteId);
     }
 }

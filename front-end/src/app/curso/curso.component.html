@@ -1,1 +1,24 @@
-<p>curso works!</p>
+<h1>Curso</h1>
+<a class="btn btn-primary"  [routerLink]="['/cursos/cadastrar']" role="button">Novo Cadastro</a>
+
+
+<div class="card mt-3 mb-3">
+  <div class="card-header">
+    Lista
+  </div>
+  <div class="card-body">
+
+    <table class="table table-sm">
+      <thead>
+          <tr>
+              <th>Descrição</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of lista">
+              <td><span>{{ item.descricao }}</span></td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
+</div>

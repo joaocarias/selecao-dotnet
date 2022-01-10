@@ -1,3 +1,9 @@
+import { MatriculasService } from 'src/app/servicos/matriculas.service';
+import { PagamentosService } from 'src/app/servicos/pagamentos.service';
+import { EmailsService } from './servicos/emails.service';
+import { CartoesService } from './servicos/cartoes.service';
+import { Globals } from './globals';
+import { CursosService } from './servicos/cursos.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ActivatedRoute, RouterModule } from '@angular/router';
@@ -13,7 +19,11 @@ import { EstudanteCadastrarComponent } from './estudante/estudante-cadastrar/est
 import { EstudantesService } from './servicos/estudantes.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { EstudanteEditarComponent } from './estudante/estudante-editar/estudante-editar.component';
+import { EstudanteDetalharComponent } from './estudante/estudante-detalhar/estudante-detalhar.component';
+import { CursoCadastrarComponent } from './curso/curso-cadastrar/curso-cadastrar.component';
+import { CartaoCadastrarComponent } from './cartao/cartao-cadastrar/cartao-cadastrar.component';
+import { PagamentoCadastrarComponent } from './pagamento/pagamento-cadastrar/pagamento-cadastrar.component';
+import { MatriculaCadastrarComponent } from './matricula/matricula-cadastrar/matricula-cadastrar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +34,11 @@ import { EstudanteEditarComponent } from './estudante/estudante-editar/estudante
     HomeComponent,
     CursoComponent,
     EstudanteCadastrarComponent,
-    EstudanteEditarComponent,
+    EstudanteDetalharComponent,
+    CursoCadastrarComponent,
+    CartaoCadastrarComponent,
+    PagamentoCadastrarComponent,
+    MatriculaCadastrarComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +48,13 @@ import { EstudanteEditarComponent } from './estudante/estudante-editar/estudante
   ],
 
   providers: [
-    EstudantesService
+    EstudantesService,
+    CursosService,
+    CartoesService,
+    EmailsService,
+    PagamentosService,
+    MatriculasService,
+    Globals
   ],
   bootstrap: [AppComponent]
 })

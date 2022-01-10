@@ -65,6 +65,11 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
             return _contexto.Matriculas.Include(m => m.Estudante).Include(m => m.Curso).Where(m => m.Id.Equals(id) && m.Ativo).FirstOrDefault();
         }
 
+        public IList<Matricula> ObterMatriculasPorEstudante(Guid estudanteId)
+        {
+            return _contexto.Matriculas.Include(m => m.Estudante).Include(m => m.Curso).Where(m => m.EstudanteId.Equals(estudanteId)).ToList();
+        }
+
         public IList<Matricula>? ObteTodos()
         {
             return _contexto.Matriculas.Include(m => m.Estudante).Include(m => m.Curso).Where(x => x.Ativo).ToList();

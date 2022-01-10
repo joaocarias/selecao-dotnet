@@ -156,5 +156,24 @@ namespace Joao.Desafio.API.Controllers
 
             return BadRequest();
         }
+
+        // GET obter-cartoes-creditos-por-estudante
+        /// <summary>
+        /// Obtem a partir do guid do estudante, informacoes sobre cartões de crétido associados
+        /// </summary>
+        /// <remarks>
+        /// Exemplo:
+        ///
+        ///     GET /obter-cartoes-creditos-por-estudante?estudanteId=216d5ef4-c339-4bfa-8f47-38e7b3dc563d
+        /// 
+        /// </remarks>
+        /// <returns>Retorna lista de cartões de crédito do estudante com informações do cadastrado</returns>
+        /// <response code="200">Cartões de Crédito do estudante</response>
+        [HttpGet("obter-cartoes-creditos-por-estudante")]
+        public IActionResult ObterCartoesCreditoPorEstudante(Guid estudanteId)
+        {
+            return Ok(_cartaoCreditoRepositorio.ObterCartoesCreditoPorEstudante(estudanteId));
+        }
+
     }
 }

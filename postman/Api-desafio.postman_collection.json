@@ -147,7 +147,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://{{api-desafio}}/api/Estudante/obter?Id=93b44e8-5f89-498f-9805-d33ff1b522eb",
+					"raw": "https://{{api-desafio}}/api/Estudante/obter?Id=593b44e8-5f89-498f-9805-d33ff1b522eb",
 					"protocol": "https",
 					"host": [
 						"{{api-desafio}}"
@@ -160,7 +160,7 @@
 					"query": [
 						{
 							"key": "Id",
-							"value": "93b44e8-5f89-498f-9805-d33ff1b522eb"
+							"value": "593b44e8-5f89-498f-9805-d33ff1b522eb"
 						}
 					]
 				}
@@ -194,7 +194,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n     \"nomeCompleto\": \"João Carias de França\"\r\n}",
+					"raw": "{\r\n     \"nomeCompleto\": \"João Carias de França\",\r\n     \"email\": \"joao@gmail.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -278,6 +278,33 @@
 			"response": []
 		},
 		{
+			"name": "E-Mail - Obter Por Destinatário",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-desafio}}/api/Email/obter-por-destinatario/?destinatario=noa@kama.com",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"Email",
+						"obter-por-destinatario",
+						""
+					],
+					"query": [
+						{
+							"key": "destinatario",
+							"value": "noa@kama.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Cartão de Crédito - Obter",
 			"request": {
 				"method": "GET",
@@ -297,6 +324,33 @@
 						{
 							"key": "Id",
 							"value": "93b44e8-5f89-498f-9805-d33ff1b522eb"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cartão de Crédito - Obter Por Estudante",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-desafio}}/api/CartaoCredito/obter-cartoes-creditos-por-estudante/?estudanteId=9cd9c271-09b6-40cf-8473-344097fd74df",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"CartaoCredito",
+						"obter-cartoes-creditos-por-estudante",
+						""
+					],
+					"query": [
+						{
+							"key": "estudanteId",
+							"value": "9cd9c271-09b6-40cf-8473-344097fd74df"
 						}
 					]
 				}
@@ -414,6 +468,33 @@
 			"response": []
 		},
 		{
+			"name": "Matricula - Obter Por Estudante",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-desafio}}/api/Matricula/obter-por-estudante/?estudanteId=51fe4de6-db06-45ad-91cd-2cf32dec2e84",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"Matricula",
+						"obter-por-estudante",
+						""
+					],
+					"query": [
+						{
+							"key": "estudanteId",
+							"value": "51fe4de6-db06-45ad-91cd-2cf32dec2e84"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Matricula -  Matricular",
 			"request": {
 				"method": "POST",
@@ -443,13 +524,40 @@
 			"response": []
 		},
 		{
+			"name": "Pagamento - Obter Por Estudante",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-desafio}}/api/Pagamento/obter-por-estudante/?estudanteId=ab830451-9395-45eb-b760-63bfc251f375",
+					"protocol": "https",
+					"host": [
+						"{{api-desafio}}"
+					],
+					"path": [
+						"api",
+						"Pagamento",
+						"obter-por-estudante",
+						""
+					],
+					"query": [
+						{
+							"key": "estudanteId",
+							"value": "ab830451-9395-45eb-b760-63bfc251f375"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Pagamento -  Novo",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"estudanteId\": \"77ef6b22-6ba2-4ba0-b5a7-a990fc8b4a94\",\r\n  \"valor\": 200.00\r\n}",
+					"raw": "{\r\n  \"estudanteId\": \"77ef6b22-6ba2-4ba0-b5a7-a990fc8b4a94\",\r\n  \"cartaoCreditoId\": \"216d5ef4-c339-4bfa-8f47-38e7b3dc563d\",\r\n  \"valor\": 200.00\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

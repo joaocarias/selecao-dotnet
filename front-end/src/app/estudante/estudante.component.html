@@ -9,7 +9,7 @@
   <div class="card-body">
 
     <table class="table table-sm">
-      <thead *ngIf="!flagListaVazia">
+      <thead>
           <tr>
               <th>Nome</th>
               <th>E-mail</th>
@@ -23,17 +23,8 @@
               <td><span>{{ item.email }}</span></td>
 
               <td>
-                  <a class="btn btn-success btn-sm" (click)="editEstudante(item)"> Acessar </a>
-
-                  <a  class="btn btn-primary btn-sm" [routerLink]="['/estudantes/editar']" > Editar </a>
-                  <a class="btn btn-danger btn-sm" (click)="deleteEstudante(item)"> Deletar </a>
+                  <a class="btn btn-success btn-sm" [routerLink]="['/estudantes', item.id]" > Mais Informações </a>
               </td>
-          </tr>
-
-          <tr *ngIf="flagListaVazia">
-            <div class="alert alert-warning" role="alert">
-              Nenhum registro encontrado!
-            </div>
           </tr>
       </tbody>
   </table>

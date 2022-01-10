@@ -1,3 +1,4 @@
+import { Globals } from './../globals';
 import { IEstudante } from './../interface/iestudante';
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -10,9 +11,9 @@ import { retry, catchError} from 'rxjs/operators';
 
 export class EstudantesService {
 
-  url = "https://localhost:44376/api/Estudante";
+  constructor(private httpClient: HttpClient, private globals: Globals){ }
 
-  constructor(private httpClient: HttpClient){ }
+  url = this.globals.API_URL + "/Estudante";
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -27,7 +28,7 @@ export class EstudantesService {
   }
 
   public obter(id: string): Observable<IEstudante>{
-    return this.httpClient.get<IEstudante>(this.url +'/obter/id='+id)
+    return this.httpClient.get<IEstudante>(this.url +'/obter/?id='+id)
       .pipe(
         retry(2),
         catchError(this.handleError)

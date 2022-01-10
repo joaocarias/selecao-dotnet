@@ -1,0 +1,48 @@
+<h1>Cartão de Crédito</h1>
+
+<div class="card">
+  <div class="card-header">
+    Cadastrar
+  </div>
+  <div class="card-body">
+
+    <form id="add-form" (ngSubmit)="save(form)" #form="ngForm">
+
+      <input type="hidden" id="estudanteId" name="estudanteId"
+          [(ngModel)]="cartao.estudanteId"
+      />
+
+      <div class="col-3 mb-3">
+          <label for="numero" class="form-label"> Número </label>
+          <input id="numero" class="form-control" type="text" [(ngModel)]="cartao.numero"
+             name="numero" placeholder="informe o número" >
+      </div>
+
+    <div class="col-3 mb-3">
+        <label for="titular" class="form-label"> Titular </label>
+        <input id="titular" class="form-control" type="text" [(ngModel)]="cartao.nomeTitular"
+         name="titular" placeholder="Digite o nome titular igual ao do cartão" >
+    </div>
+
+    <div class="col-3 mb-3">
+      <label for="validade" class="form-label"> Validade </label>
+      <input id="validade" class="form-control" type="text" [(ngModel)]="cartao.validade"
+      name="validade" placeholder="Digite no formato mes/ano" >
+  </div>
+
+  <div class="col-3 mb-3">
+    <label for="codigo" class="form-label"> Código </label>
+    <input id="codigo" class="form-control" type="text" [(ngModel)]="cartao.codigo"
+     name="codigo" placeholder="Digite código de segurança" >
+  </div>
+
+
+      <div class="mb-3">
+        <button class="btn btn-primary btn-sm" type="submit"> Salvar </button>
+        <a class="btn btn-warning btn-sm" [routerLink]="['/estudantes']" > Cancelar </a>
+      </div>
+  </form>
+
+
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<h1>Pagamentos</h1>
+
+<div class="card">
+  <div class="card-header">
+    Cadastrar
+  </div>
+  <div class="card-body">
+
+    <form id="add-form" (ngSubmit)="save(form)" #form="ngForm">
+
+      <input type="hidden" id="estudanteId" name="estudanteId"
+          [(ngModel)]="pagamento.estudanteId"
+      />
+
+      <div class="col-3 mb-3">
+          <label for="cartaoCreditoId" class="form-label"> Cartão de Crédito </label>
+          <select name="cartaoCreditoId" id="cartaoCreditoId" class="form-control" [(ngModel)]="pagamento.cartaoCreditoId" required>
+            <option *ngFor="let cartao of listaCartaoCredito" [value]="cartao.id">{{cartao.numero}}</option>
+          </select>
+      </div>
+
+      <div class="col-3 mb-3">
+          <label for="valor" class="form-label"> Valor </label>
+          <input id="valor" class="form-control" type="text" [(ngModel)]="pagamento.valor"
+             name="valor" placeholder="informe o valor" >
+      </div>
+
+      <div class="mb-3">
+        <button class="btn btn-primary btn-sm" type="submit"> Salvar </button>
+        <a class="btn btn-warning btn-sm" [routerLink]="['/estudantes']" > Cancelar </a>
+      </div>
+  </form>
+
+
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<h1>Curso</h1>
+
+<div class="card">
+  <div class="card-header">
+    Cadastrar
+  </div>
+  <div class="card-body">
+
+    <form id="add-form" (ngSubmit)="saveCurso(form)" #form="ngForm">
+      <div class="mb-3">
+          <label for="descricao" class="form-label"> Descrição do Curso </label>
+          <input id="descricao" class="form-control" type="text" [(ngModel)]="curso.descricao" name="descricao" placeholder="Digite o nome do curso" >
+      </div>
+
+      <div class="mb-3">
+        <button class="btn btn-primary btn-sm" type="submit"> Salvar </button>
+        <a class="btn btn-warning btn-sm" [routerLink]="['/cursos']" > Cancelar </a>
+      </div>
+  </form>
+
+
+  </div>
+</div>

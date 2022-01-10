@@ -72,6 +72,18 @@ namespace Joao.Desafio.Infraestrutura.Repositorios
             }
         }
 
+        public IList<CartaoCredito> ObterCartoesCreditoPorEstudante(Guid estudanteId)
+        {
+            try
+            {
+                return _contexto.CartaoCreditos.Include(c => c.Estudante).Where(c => c.Ativo && c.EstudanteId.Equals(estudanteId)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return new List<CartaoCredito>();
+            }
+        }
+
         public IList<CartaoCredito>? ObteTodos()
         {
             try

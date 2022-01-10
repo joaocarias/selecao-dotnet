@@ -5,5 +5,6 @@ namespace Joao.Desafio.Dominio.IRepositorios
 {
     public interface ICartaoCreditoRepositorio : IRepositorioBase<CartaoCredito>
     {
+        IList<CartaoCredito> ObterCartoesCreditoPorEstudante(Guid estudanteId);
     }
 }
